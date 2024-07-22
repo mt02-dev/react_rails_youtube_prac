@@ -1,6 +1,6 @@
 import React, { useState, useEffect }from "react"
 import { API_URL } from "../../constants"
-import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -33,7 +33,11 @@ function PostList() {
         {posts.map((post) => {
           return (
             <div key={post.id} className="post-wrap">
-              <h2 className="title">{post.title}</h2>
+              <h2>
+                <Link to={`/posts/${post.id}`}  className="title">
+                  {post.title}
+                </Link>
+              </h2>
               <p className="body">{post.body}</p>
             </div>
           )
